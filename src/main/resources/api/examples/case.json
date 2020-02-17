@@ -1,0 +1,17 @@
+ 
+   {  
+      "caseId":"2324",
+      "sourceSystem": "SNOW",
+      "status":"2018-12-12",
+      "owner":"2324",
+      "priority":"High",
+      "comments":"This is test",
+      "lastUpdatedDate": "2015-09-28T21:43:36.000Z",
+      "externalComments":"5",
+      "externalStatus":"3",
+      "externalSystemLastUpdated":"1999-01-01",
+      "externalOwner":"SNOW",
+      "externalPriority": "High"
+
+
+   }

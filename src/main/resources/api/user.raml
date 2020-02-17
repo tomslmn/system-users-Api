@@ -1,0 +1,115 @@
+#%RAML 1.0
+title: Users-System-Api
+description: this user API does CRUD operation on user resource
+version: 1
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/7c6b2aff-bba1-48d2-be67-0fd7fab7bf84/ # baseUri: http://localhost:8081
+/Users:
+  description: Getting available users the service provides
+  get:
+    description: Getting the list of all users
+    queryParameters:
+       first name?: string
+       Last name?: string
+       department?: string
+  
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+        
+                {
+                "userId": 1,
+                "first name": "tom",
+                "Last name": "Solomon",
+                "department": "IT"
+                }
+         
+      404:
+        body:
+          application/json:
+            example: "Bad request, please try again"
+  /{userId}:
+    get:
+      description: Getting specific user using userId={userId}
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                {
+            "userId": 2,
+            "first name": "Yomis",
+            "last name": "Dawud",
+            "department": "treasury"
+             }
+                
+  post:
+    description: "To add a new user to the list of users"
+    body:
+      application/json:
+        example: 
+          { 
+            "first name": "Yonas",
+            "last name": "Dadim",
+            "department": "Security"
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+            "userId": 2,
+            "first name": "Yonas",
+            "last name": "Dadim",
+            "department": "Security"
+             }
+      404:
+       body:
+        application/json:
+          example: "sorry can't create the user, please try later"
+  put:
+    description: updeting the user information
+    queryParameters:
+      userId:
+          type: integer
+          description: Id of the user
+          required: true
+      
+    body:
+      application/json:
+        example:  
+          {  "userId": 3,
+            "first name": "Yonas",
+            "last name": "Dadim",
+            "department": "Security"
+          }
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+               {"message": "the user updated successfully"}
+      400:
+        body:
+          application/json:
+            example: "Bad request, please try again"
+              
+      
+  delete:
+    description: deleting a user by Id
+    queryParameters:
+      userId:
+        type: integer
+        required: true
+    responses:
+      200:
+        body:
+          application/json:
+            example:  
+              {"message": "the user deleted successfully"}
+            
+        
+          
+    
